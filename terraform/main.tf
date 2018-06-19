@@ -79,8 +79,8 @@ module "service" {
   task_container_port               = "8080"
   task_container_count              = "1"
   task_definition_image             = "${module.ecr.container_repo_repository_url}@sha256:${var.container_image_sha256}"
-  task_definition_cpu               = "256"
-  task_definition_ram               = "512"
+  task_definition_cpu               = "${var.fargate_cpu}"
+  task_definition_ram               = "${var.fargate_memory}"
   task_definition_environment_count = "1"
 
   task_definition_environment = {
