@@ -26,7 +26,7 @@ module "build" {
 data "aws_availability_zones" "available" {}
 
 module "vpc" {
-  source               = "git@github.com:terraform-aws-modules/terraform-aws-vpc.git?ref=v1.34.0"
+  source               = "github.com/terraform-aws-modules/terraform-aws-vpc.git?ref=v1.34.0"
   name                 = "default"
   cidr                 = "${var.vpc_cidr}"
   azs                  = "${slice(data.aws_availability_zones.available.names, 0, var.az_count - 1)}"
