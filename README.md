@@ -1,3 +1,5 @@
+Instruksjoner
+=============
 ```
 brew install terraform vaulted awscli
 git clone https://github.com/larstobi/spring-hello.git
