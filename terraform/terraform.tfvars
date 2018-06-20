@@ -1,5 +1,5 @@
-aws_account_id         = "045871928384"
+aws_account_id         = "0000000000"
 prefix                 = "hello"
 ecr_repo_name          = "hello"
-container_image_sha256 = "e240d7a3afa3b123b0c43064083819a4cd1858ee663575282ed3e344bb784a29"
+container_image_sha256 = "changeme"
 github_repo_url        = "https://github.com/larstobi/spring-hello.git"
