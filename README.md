@@ -4,29 +4,28 @@ git clone https://github.com/larstobi/spring-hello.git
 cd spring-hello/terraform
 vaulted add capra-private
 ```
-   < legg inn credz >
-   < OBS! legg også inn mfa arn >
+* Legg inn credentials (access key og secret + mfa arn).
+* OBS! Uten mfa arn vil det ikke fungere.
 ```
 vaulted shell capra-private
 aws sts get-caller-identity
 ```
-* Edit `terraform.tfvars` og copy-paste inn `aws_account_id` fra `Account`.
+* Edit `terraform.tfvars` og copy-paste inn `aws_account_id` fra `Account` i output.
 
 ```
 terraform init
 terraform plan
 ```
-  < se på output >
-
+* Se på output
 ```
 terraform apply 
 ```
-  < se på output og skriv yes + enter >
+* Se på output og skriv `yes` og <enter>.
 ```
 aws --region eu-west-1 codebuild start-build --project-name hello
 aws --region eu-west-1 ecr list-images --repository-name hello
 ```
-Hvis tom, vent litt og kjør list-images igjen inntil man får ut en hash.
+* Hvis tom liste i output, vent litt og kjør list-images igjen inntil man får ut en hash.
 * Edit `terraform.tfvars` og bytt it image digest med output fra ecr list.
 * Kjør `terraform apply` igjen.
 * Vent et par minutter og kjør curl mot output fra `terraform apply`: `load_balancer_hostname`
